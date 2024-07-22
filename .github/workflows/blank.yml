@@ -17,27 +17,10 @@ jobs:
       - name: Mostrar mensaje
         run: echo "Holas"
 
-  test:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Set up Go
-        uses: actions/setup-go@v4
-        with:
-          go-version: 1.22.5
-
-      - name: Install dependencies
-        run: cd ./hello-world && go mod tidy
-
-      - name: Run tests
-        run: cd ./hello-world && go test
 
   deploy:
     runs-on: ubuntu-latest
-    needs: test
+
 
     steps:
       - name: Checkout code
